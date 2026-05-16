@@ -1,0 +1,66 @@
+{
+  "S5.sol": {
+    "__sources__": {
+      "S5.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract CompBytes {\r\n\r\n    bytes private datos;\r\n\r\n    function guardarDatos(bytes memory _datos) public {\r\n\r\n        datos = _datos;\r\n\r\n    }\r\n\r\n    function guardarDatosDesdeTexto(string memory _texto) public {\r\n\r\n        datos = bytes(_texto);\r\n\r\n    }\r\n\r\n    function agregarDatos(bytes memory _datos) public {\r\n\r\n        datos = bytes.concat(datos, _datos);\r\n\r\n    }\r\n\r\n    function obtenerDatos() public view returns(bytes memory) {\r\n\r\n        return datos;\r\n\r\n    }\r\n\r\n    function obtenerDatosComoString() public view returns(string memory) {\r\n        \r\n        return string(datos);\r\n\r\n    }\r\n\r\n}",
+        "file": "S5.sol"
+      }
+    }
+  },
+  "contracts/S5.sol": {
+    "__sources__": {
+      "contracts/S5.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract CompBytes {\r\n\r\n    bytes private datos;\r\n\r\n    function guardarDatos(bytes memory _datos) public {\r\n\r\n        datos = _datos;\r\n\r\n    }\r\n\r\n    function guardarDatosDesdeTexto(string memory _texto) public {\r\n\r\n        datos = bytes(_texto);\r\n\r\n    }\r\n\r\n    function agregarDatos(bytes memory _datos) public {\r\n\r\n        datos = bytes.concat(datos, _datos);\r\n\r\n    }\r\n\r\n    function obtenerDatos() public view returns(bytes memory) {\r\n\r\n        return datos;\r\n\r\n    }\r\n\r\n    function obtenerDatosComoString() public view returns(string memory) {\r\n        \r\n        return string(datos);\r\n\r\n    }\r\n\r\n}",
+        "file": "contracts/S5.sol"
+      }
+    }
+  },
+  "contracts/12_Comp_Bytes.sol": {
+    "__sources__": {
+      "contracts/12_Comp_Bytes.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract CompBytes {\r\n\r\n    bytes private datos;\r\n\r\n    function guardarDatos(bytes memory _datos) public {\r\n\r\n        datos = _datos;\r\n\r\n    }\r\n\r\n    function guardarDatosDesdeTexto(string memory _texto) public {\r\n\r\n        datos = bytes(_texto);\r\n\r\n    }\r\n\r\n    function agregarDatos(bytes memory _datos) public {\r\n\r\n        datos = bytes.concat(datos, _datos);\r\n\r\n    }\r\n\r\n    function obtenerDatos() public view returns(bytes memory) {\r\n\r\n        return datos;\r\n\r\n    }\r\n\r\n    function obtenerDatosComoString() public view returns(string memory) {\r\n        \r\n        return string(datos);\r\n\r\n    }\r\n\r\n}",
+        "file": "contracts/12_Comp_Bytes.sol"
+      }
+    }
+  },
+  "contracts/11.Comp_string.sol": {
+    "__sources__": {
+      "contracts/11.Comp_string.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract CompString {\r\n    string private saludo = \"Hola \";\r\n\r\n    \r\n    function cambiarSaludo(string memory texto) public {\r\n        saludo = texto;\r\n    }\r\n\r\n    function saludar() public view returns(string memory) {\r\n        return saludo;\r\n    }\r\n\r\n    function saludarNombre(string memory texto) public view returns(string memory){\r\n\r\n        return string(abi.encodePacked(saludo, texto));\r\n\r\n    }\r\n\r\n}",
+        "file": "contracts/11.Comp_string.sol"
+      }
+    }
+  },
+  "contracts/13.Comp_array.sol": {
+    "__sources__": {
+      "contracts/13.Comp_array.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract CompArrays {\r\n    \r\n\r\n    //struct\r\n    struct Alumno {\r\n\r\n        string nombre;\r\n        uint edad;\r\n    }\r\n\r\n    uint256[] public numeros; \r\n\r\n    Alumno[] private alumnos;    \r\n\r\n    function agregarNumero(uint _num) public{\r\n        numeros.push(_num);\r\n    }\r\n\r\n    function obtenerNumeros() public view returns(uint256[] memory){\r\n\r\n        return numeros;\r\n\r\n    }\r\n\r\n    function getTamanioArray () public view returns(uint) {\r\n\r\n        return numeros.length;\r\n\r\n    }\r\n\r\n    //function numeros(uint256 indice) public view returns(uint) --> crea compilador\r\n\r\n    //para arreglo\r\n\r\n    function agregarAlumno(string memory _nombre, uint _edad) public {\r\n\r\n        alumnos.push(Alumno(_nombre, _edad));\r\n\r\n    }\r\n\r\n    function mostrarAlumno(uint256 i) public  view returns(string memory, uint) {\r\n        //version 1\r\n        Alumno memory a = alumnos[i];\r\n        return (a.nombre, a.edad);\r\n        //version 2\r\n        //return (alumnos[i].nombre, alumnos[i].edad);\r\n    }\r\n\r\n}",
+        "file": "contracts/13.Comp_array.sol"
+      }
+    }
+  },
+  "contracts/15.Ejercicio.sol": {
+    "__sources__": {
+      "contracts/15.Ejercicio.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract EjercicioMensajería{\r\n\r\n\r\n\r\n}",
+        "file": "contracts/15.Ejercicio.sol"
+      }
+    }
+  },
+  "contracts/14.Comp_mapping.sol": {
+    "__sources__": {
+      "contracts/14.Comp_mapping.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract CompMapping {\r\n\r\n    uint256 secuencial = 100;\r\n\r\n    //struct\r\n    struct Empleado {\r\n\r\n        string nombre;\r\n        uint edad;\r\n\r\n    }\r\n\r\n    /*struct Cuentas {\r\n\r\n        address cuenta;\r\n        uint saldo;\r\n\r\n    }*/\r\n\r\n\r\n    mapping(uint => Empleado) private empleados; //mapping de los empleados)\r\n\r\n    function getEmpleado(uint _id)public view returns (string memory _nombre, uint _edad){\r\n\r\n        Empleado memory emp = empleados[_id];\r\n        return (emp.nombre, emp.edad);\r\n    }\r\n\r\n    function addEmpleado(uint id, string memory _nombre, uint _edad) public {\r\n\r\n        empleados[id] = Empleado(_nombre, _edad);\r\n    }\r\n\r\n    function addEmpleadoSecuencial(string memory _nombre, uint _edad) public {\r\n\r\n        empleados[secuencial] = Empleado(_nombre, _edad);\r\n        secuencial ++;\r\n    }\r\n}",
+        "file": "contracts/14.Comp_mapping.sol"
+      }
+    }
+  },
+  "contracts/15.EjercicioMensajería.sol": {
+    "__sources__": {
+      "contracts/15.EjercicioMensajería.sol": {
+        "content": "// SPDX-License-Identifier: GPL-3.0\r\npragma solidity >=0.8.2 <0.9.0;\r\n\r\ncontract EjercicioMensajeria{\r\n\r\n    address public owner;\r\n\r\n    struct Mensaje {\r\n        address from;\r\n        address to;\r\n        string contenido;\r\n        uint256 timestamp;\r\n    }\r\n\r\n    Mensaje[] public historial;\r\n\r\n    event NuevoMensaje(address indexed from, address indexed to, string contenido, uint256 timestamp);\r\n\r\n    constructor(){\r\n\r\n        owner = msg.sender;\r\n\r\n    }\r\n\r\n    function enviarMensaje(address _to, string memory _contenido) public {\r\n\r\n        require(msg.sender == owner, \"Solo el propietario puede enviar mensajes\");\r\n\r\n        Mensaje memory mensajeParaGuardar = Mensaje({\r\n            from: owner,\r\n            to: _to,\r\n            contenido: _contenido,\r\n            timestamp: block.timestamp\r\n        });\r\n\r\n        historial.push(mensajeParaGuardar);\r\n\r\n        emit NuevoMensaje(msg.sender, _to, _contenido, block.timestamp);\r\n    }\r\n}",
+        "file": "contracts/15.EjercicioMensajería.sol"
+      }
+    }
+  }
+}
