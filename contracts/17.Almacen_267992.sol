@@ -14,6 +14,8 @@ contract Almacen_267992 {
 
     Producto[] public productos;
 
+    address public dirContrato = 0xB57ee0797C3fc0205714a577c02F7205bB89dF30;
+
     function registrarProducto(uint256 _id, string memory _nombre, uint256 _cantidad) public {
 
         console.log("ejecutado por: 267992 - Oliver Alexis Saldana Ylquimiche ");
@@ -30,5 +32,27 @@ contract Almacen_267992 {
         
         productos.push(nuevoProducto); 
 
+    }
+    
+    function agregarElemento(uint256 _id, string memory _nombre, uint256 _cantidad) public {
+
+        Producto memory nuevoProducto = Producto(
+            {
+                id: _id,
+                nombre: _nombre,
+                cantidad: _cantidad
+            }
+        );
+
+        productos.push(nuevoProducto);
+
+    }
+
+    function contarElementos() public view returns (uint256) {
+
+        console.log("ejecutado por: 267992 - Oliver Alexis Saldana Ylquimiche ");
+
+        return productos.length;
+    
     }
 }
